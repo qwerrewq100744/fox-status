@@ -1,0 +1,296 @@
+/* === 夏日乡间 · 狐姐妹状态栏 === */
+
+/* CSS 色彩变量 */
+:root {
+  --c-primary: #e8943a;
+  --c-primary-soft: #f5c882;
+  --c-surface: #fdf6ee;
+  --c-surface-warm: #fef9f2;
+  --c-card-shiro: #fafaf5;
+  --c-card-kitsune: #fef7ed;
+  --c-text: #5c4a3a;
+  --c-text-muted: #9b8573;
+  --c-text-light: #c4b09b;
+  --c-border: #e8d9c5;
+  --c-accent-green: #7a9a6e;
+  --c-accent-gold: #d4a853;
+  --c-heart: #e07070;
+  --c-trust: #7a9a6e;
+  --c-bell: #e8943a;
+  --c-night: #2c3d5c;
+  --bg-gradient-top: rgba(232, 148, 58, 0.15);
+  --bg-gradient-bottom: rgba(122, 154, 110, 0.08);
+  font-family: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', 'Hiragino Mincho Pro', serif;
+}
+
+/* === 状态栏主体 === */
+.status-bar {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(175deg, var(--bg-gradient-top), var(--bg-gradient-bottom)), var(--c-surface);
+  border: 1px solid var(--c-border);
+  box-shadow: 0 1px 6px rgba(180, 150, 120, 0.15);
+  max-width: 100%;
+  transition: background 0.8s ease;
+}
+
+/* === 顶栏 === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--c-border);
+}
+
+.time-info {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--c-text);
+}
+
+.time-info .day {
+  font-weight: 600;
+  color: var(--c-primary);
+}
+
+.time-info .dot {
+  color: var(--c-text-light);
+  margin: 0 4px;
+}
+
+.time-info .location {
+  color: var(--c-accent-green);
+  font-weight: 500;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--c-accent-gold);
+  background: rgba(212, 168, 83, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.stage-icon {
+  font-size: 14px;
+}
+
+/* === 角色卡片容器 === */
+.cards {
+  display: flex;
+  gap: 10px;
+}
+
+/* === 角色卡片 === */
+.card {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--c-border);
+  min-width: 0;
+}
+
+.card.shiro {
+  background: linear-gradient(135deg, rgba(250, 250, 245, 0.9), rgba(255, 255, 255, 0.95));
+  border-color: #e8ddd0;
+}
+
+.card.kitsune {
+  background: linear-gradient(135deg, rgba(254, 247, 237, 0.9), rgba(255, 250, 245, 0.95));
+  border-color: #ecdcc5;
+}
+
+/* === 卡片头部 === */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.chara-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card.shiro .chara-name {
+  color: #8b9d8b;
+}
+
+.card.kitsune .chara-name {
+  color: var(--c-primary);
+}
+
+.chara-emoji {
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.stats {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  font-size: 12px;
+  align-items: center;
+}
+
+.affection {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--c-text-muted);
+  font-weight: 500;
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--c-text-muted);
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.heart {
+  color: var(--c-text-light);
+  transition: color 0.5s ease;
+  font-size: 11px;
+}
+
+.heart.active {
+  color: var(--c-heart);
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.shield {
+  font-size: 10px;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+}
+
+.shield.active {
+  opacity: 1;
+}
+
+/* === 进度条 === */
+.affection-bar,
+.trust-bar {
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.trust-bar {
+  height: 2px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shiro-fill {
+  background: linear-gradient(90deg, #bcccb8, #8bab8b);
+}
+
+.kitsune-fill {
+  background: linear-gradient(90deg, #f5c882, #e8943a);
+}
+
+.trust-fill {
+  background: linear-gradient(90deg, #a3bf9a, #5d8a5d);
+}
+
+/* === 内心独白 === */
+.inner-thought {
+  font-size: 11px;
+  color: var(--c-text-muted);
+  line-height: 1.5;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted rgba(0, 0, 0, 0.05);
+  font-style: italic;
+}
+
+.thought-mark {
+  color: var(--c-text-light);
+  font-size: 10px;
+}
+
+/* === 时间段主题 === */
+.status-bar.morning {
+  --bg-gradient-top: rgba(232, 180, 100, 0.18);
+  --bg-gradient-bottom: rgba(180, 210, 150, 0.06);
+}
+
+.status-bar.afternoon {
+  --bg-gradient-top: rgba(220, 160, 80, 0.12);
+  --bg-gradient-bottom: rgba(160, 200, 130, 0.10);
+}
+
+.status-bar.dusk {
+  --bg-gradient-top: rgba(230, 130, 50, 0.22);
+  --bg-gradient-bottom: rgba(140, 120, 160, 0.12);
+}
+
+.status-bar.night {
+  --bg-gradient-top: rgba(50, 60, 100, 0.25);
+  --bg-gradient-bottom: rgba(30, 40, 70, 0.15);
+  border-color: #3a4560;
+}
+
+.status-bar.night .card.shiro {
+  background: linear-gradient(135deg, rgba(60, 70, 95, 0.5), rgba(50, 60, 85, 0.5));
+  border-color: #3a4565;
+}
+
+.status-bar.night .card.kitsune {
+  background: linear-gradient(135deg, rgba(70, 65, 80, 0.5), rgba(55, 55, 75, 0.5));
+  border-color: #4a4565;
+}
+
+.status-bar.night .chara-name,
+.status-bar.night .time-info,
+.status-bar.night .inner-thought,
+.status-bar.night .affection,
+.status-bar.night .trust {
+  color: #bcc5d8;
+}
+
+.status-bar.night .card-header .chara-name,
+.status-bar.night .time-info .day {
+  color: #dcc590;
+}
+
+.status-bar.night .time-info .location {
+  color: #9ab89a;
+}
+
+/* === 动画 === */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+}
+
+/* === 响应式 === */
+@media (max-width: 400px) {
+  .cards {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .status-bar {
+    padding: 8px 10px;
+  }
+}

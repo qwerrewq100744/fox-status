@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "世界": {
+      "type": "object",
+      "properties": {
+        "当前时间": {
+          "type": "string"
+        },
+        "当前天数": {
+          "type": "number"
+        },
+        "当前位置": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "当前时间",
+        "当前天数",
+        "当前位置"
+      ]
+    },
+    "白": {
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "type": "number"
+        },
+        "内心想法": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "好感度",
+        "内心想法"
+      ]
+    },
+    "狐": {
+      "type": "object",
+      "properties": {
+        "好感度": {
+          "type": "number"
+        },
+        "信任度": {
+          "type": "number"
+        },
+        "内心想法": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "好感度",
+        "信任度",
+        "内心想法"
+      ]
+    },
+    "剧情": {
+      "type": "object",
+      "properties": {
+        "阶段": {
+          "type": "string",
+          "enum": [
+            "观察期",
+            "软化期",
+            "卸防期",
+            "深情期"
+          ]
+        }
+      },
+      "required": [
+        "阶段"
+      ]
+    }
+  },
+  "required": [
+    "世界",
+    "白",
+    "狐",
+    "剧情"
+  ]
+}
