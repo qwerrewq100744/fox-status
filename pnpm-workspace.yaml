@@ -2,8 +2,11 @@ allowBuilds:
   '@parcel/watcher': true
   unrs-resolver: true
   vue-demi: true
+<<<<<<< HEAD
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - unrs-resolver
   - vue-demi
   - '*'
+=======
+>>>>>>> c27dc311feeca88f575184c70cd539091ffeaf47
